@@ -1,0 +1,17 @@
+version: '3.1'
+
+services:
+  todo-api:
+    image: postgres:latest
+    container_name: todo-api
+    environment:
+      POSTGRES_USER : ${DB_USER}
+      POSGRES_DB: ${DB_NAME}
+      POSGRES_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - postgres:/var/lib/postgresql/data
+    ports:
+      - '5432:5432'
+volumes:
+  postgres:
+    driver: local
